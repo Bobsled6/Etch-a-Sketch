@@ -1,0 +1,16 @@
+.container{
+   display: flex;
+   flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    background-color: red;
+
+}
+
+.sketch{
+    background-color: blue;
+    box-sizing: border-box;
+    border: 2px solid black;
+   
+    
+}
