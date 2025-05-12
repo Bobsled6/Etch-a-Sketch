@@ -1,5 +1,5 @@
 let container = document.querySelector(".container");
-
+let rbgStringArray = new Array();
 
 for(let i = 0; i < 16; i++){
     let etchDiv = document.createElement("div");
@@ -19,8 +19,10 @@ function dimCalc(userPrompt){
     }   else{alert("ERROR: Please enter a whole number between 1 and 100")}
 }
 
-for(let i = 0; i < 8; i++){
+for(let i = 0; i < 3; i++){
     let colorValue = (Math.random() * 256);
     colorValue = Math.round(colorValue);
-    console.log(colorValue);
+    rbgString = rbgStringArray.push(colorValue);
 }
+
+
