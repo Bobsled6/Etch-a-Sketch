@@ -10,6 +10,9 @@ for(let i = 0; i < 16; i++){
 }
 
 function dimCalc(userPrompt){
-    let dimDiv = Math.sqrt(360000 / userPrompt);
-    return(dimDiv);
-    }
+    if(userPrompt <= 100 && userPrompt > 0 && Number.isInteger(userPrompt)){
+        let dimDiv = Math.sqrt(360000 / userPrompt);
+        return(dimDiv);
+    }   else{alert("ERROR: Please enter a whole number between 1 and 100")}
+}
+
