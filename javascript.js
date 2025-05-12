@@ -10,7 +10,6 @@ for(let i = 0; i < 16; i++){
 }
 
 function dimCalc(userPrompt){
-    userPrompt = prompt();
     let dimDiv = Math.sqrt(360000 / userPrompt);
     return(dimDiv);
     }
