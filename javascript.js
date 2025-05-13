@@ -35,6 +35,7 @@ divButton.textContent = "New Grid";
 divButton.addEventListener("click", () => {
     promptAnswer = prompt("Please enter the amount of squares per side of your new grid. (max 100)");
     userChoice = promptAnswer * 1;
+    container.innerHTML = "";
     createGrid();
 });
 
