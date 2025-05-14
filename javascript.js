@@ -24,19 +24,25 @@ function createGrid (){for(let i = 0; Math.sqrt(i) < userChoice; i++){
         }     
         etchDiv.style.backgroundColor = "rgb("+ rgbStringArray[0] +
                                              ", " + rgbStringArray[1] +
-                                             ", " + rgbStringArray[2] + ")";                             
-            }) 
+                                             ", " + rgbStringArray[2] + ")";      
+                               
+            })
+                 
     container.appendChild(etchDiv);
+    
+    
 }}
 
 let sketchDivArray = document.querySelectorAll(".sketch");
 let sketchDiv = document.querySelector(`.sketch`);
 
-sketchDivArray.forEach(function(sketchDiv){
+function opacChangeFunct(){sketchDivArray.forEach(function(sketchDiv){
     sketchDiv.addEventListener("mouseenter", () => {
         sketchDiv.style.opacity = parseFloat(window.getComputedStyle(sketchDiv).getPropertyValue("opacity")) + .1;
     });
-});
+});}
+
+opacChangeFunct();
 
 divButton.textContent = "New Grid";
 
@@ -45,7 +51,10 @@ divButton.addEventListener("click", () => {
     userChoice = promptAnswer * 1;
     if (userChoice > 0 && userChoice <= 100){
     container.innerHTML = "";
-    createGrid();}
+    createGrid();
+    sketchDivArray = document.querySelectorAll(".sketch");
+    sketchDiv = document.querySelector(`.sketch`);
+    opacChangeFunct();}
     else{alert("ERROR: Please enter a whole number between 1 and 100.")}
 });
 
