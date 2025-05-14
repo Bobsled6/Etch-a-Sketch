@@ -3,11 +3,12 @@
    flex-wrap: wrap;
     width: 600px;
     height: 600px;
+    border: 1px solid black;
 }
 
 .sketch{
     box-sizing: border-box;
-    border: 2px solid black;
+    opacity: 0;
 }
 
 .bigContainer{
@@ -20,6 +21,8 @@
     margin-top: 50px;
 }
 
-.divbutton{
-    flex:none;
+button{
+    padding:15px 40px ;
+    font-size: 15px;
+    font-weight: bold;
 }

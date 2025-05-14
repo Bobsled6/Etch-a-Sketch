@@ -1,5 +1,6 @@
 let container = document.querySelector(".container");
 let divButton = document.createElement("button");
+let clearButton = document.createElement("button");
 let bigContainer = document.querySelector(".bigContainer");
 let userChoice = 16;
 createGrid();
@@ -10,27 +11,32 @@ function dimCalc(userPrompt){
 }
 
 function createGrid (){for(let i = 0; Math.sqrt(i) < userChoice; i++){
-    let etchDiv = document.createElement("div");  
+    let etchDiv = document.createElement("div");
         etchDiv.className = "sketch";
         etchDiv.style.width = dimCalc(userChoice) + "px";
         etchDiv.style.height = dimCalc(userChoice) + "px";
         etchDiv.addEventListener("mouseenter", () => {
-            let rgbStringArray = new Array();
-            //for(let i = 0; i < 10 ; i++){
-            //    opacChange = i / 10;
-            //    etchDiv.style.opacity = opacChange;
-            //}
+        let rgbStringArray = new Array();
             for(let i = 0; i < 3; i++){
                 let colorValue = (Math.random() * 256);
                 colorValue = Math.round(colorValue);
                 rgbStringArray.push(colorValue);
-        }   etchDiv.style.backgroundColor = "rgb("+ rgbStringArray[0] +
+        }     
+        etchDiv.style.backgroundColor = "rgb("+ rgbStringArray[0] +
                                              ", " + rgbStringArray[1] +
-                                             ", " + rgbStringArray[2] + ")";})                              
+                                             ", " + rgbStringArray[2] + ")";                             
+            }) 
     container.appendChild(etchDiv);
 }}
 
-console.log(dimCalc(16));
+let sketchDivArray = document.querySelectorAll(".sketch");
+let sketchDiv = document.querySelector(`.sketch`);
+
+sketchDivArray.forEach(function(sketchDiv){
+    sketchDiv.addEventListener("mouseenter", () => {
+        sketchDiv.style.opacity = parseFloat(window.getComputedStyle(sketchDiv).getPropertyValue("opacity")) + .1;
+    });
+});
 
 divButton.textContent = "New Grid";
 
@@ -43,6 +49,14 @@ divButton.addEventListener("click", () => {
     else{alert("ERROR: Please enter a whole number between 1 and 100.")}
 });
 
+clearButton.textContent = "Clear Grid";
+clearButton.addEventListener("click", () => {
+    sketchDivArray.forEach(function(sketchDiv){
+        sketchDiv.style.opacity = 0;
+    })
+})
+
 bigContainer.appendChild(divButton);
 bigContainer.appendChild(container);
+bigContainer.appendChild(clearButton);
 
